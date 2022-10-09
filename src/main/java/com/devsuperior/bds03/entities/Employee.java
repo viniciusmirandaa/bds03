@@ -1,5 +1,6 @@
 package com.devsuperior.bds03.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,13 +16,14 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
-	public String name;	
+	public String name;
+	@Column(unique = true)
 	public String email;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "department_id")
 	public Department department;
-	
+
 	public Employee() {
 	}
 
